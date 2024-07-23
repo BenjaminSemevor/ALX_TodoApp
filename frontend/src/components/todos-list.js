@@ -33,6 +33,18 @@ const TodosList = (props) => {
         console.log(e);
       });
   }
+
+  const completeTodo = (todoId) => {
+    TodoDataService.completeTodo(todoId, props.token)
+      .then(response => {
+        retrieveTodos();
+        console.log("completeTodo", todoId);
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  }
+
   return (
     <Container>
             {props.token == null || props.token === "" ? (
@@ -50,11 +62,12 @@ const TodosList = (props) => {
         return (
           <Card key={todo.id} className="mb-3">
             <Card.Body>
-              <div>
+              <div className={`${todo.completed ? "text-decoration-line-through" : ""}`}>
                 <Card.Title>{todo.title}</Card.Title>
                 <Card.Text><b>Memo:</b> {todo.memo}</Card.Text>
                 <Card.Text>Date created: {moment(todo.created).format("Do MMMM YYYY")}</Card.Text>
               </div>
+            {!todo.completed &&
               <Link to={{
                 pathname: "/todos/" + todo.id,
                 state: {
@@ -65,8 +78,12 @@ const TodosList = (props) => {
                   Edit
                 </Button>
               </Link>
+            }
               <Button variant="outline-danger" onClick={() => deleteTodo(todo.id)}>
                 Delete
+              </Button>
+              <Button variant="outline-success" onClick={() => completeTodo(todo.id)}>
+                Complete
               </Button>
             </Card.Body>
           </Card>
