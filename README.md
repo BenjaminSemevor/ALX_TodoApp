@@ -1,5 +1,3 @@
-Webstack - Portfolio Project
-
 # Todos App
 
 ## Overview
