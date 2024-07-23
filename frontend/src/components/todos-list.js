@@ -30,7 +30,12 @@ const TodosList = (props) => {
           You are not logged in. Please <Link to={"/login"}>login</Link> to see your todos.
         </Alert>
       ) : (
-        <div>  
+        <div>
+         <Link to={"/todos/create"}>
+            <Button variant="outline-info" className="mb-3">
+              Add To-do
+            </Button>
+         </Link>   
       {todos.map((todo) => {
         return (
           <Card key={todo.id} className="mb-3">
