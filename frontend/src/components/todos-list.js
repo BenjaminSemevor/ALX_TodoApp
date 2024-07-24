@@ -49,7 +49,7 @@ const TodosList = (props) => {
     <Container>
       {props.token == null || props.token === "" ? (
         <Alert variant='warning'>
-          You are not logged in. Please <Link to={"/login"}>login</Link> to see your todos.
+          Please <Link to={"/login"}>login</Link> to view your todos.
         </Alert>
       ) : (
         <div>
