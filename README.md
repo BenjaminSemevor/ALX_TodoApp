@@ -64,12 +64,6 @@ Deploy the React frontend on Netlify by following their deployment guide.
 Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
-License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-vbnet
-
 
 Feel free to modify it according to your project's specific details and repository
 
